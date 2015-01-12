@@ -3,7 +3,9 @@ Static site / pdf generator for your resume/cv, written in go
 
 stopgo = resume.  Get it?
 
-This code will take a resume definition in JSON format and generate a PDF and a static website.
+Remember when it was cool to write your resume in LaTeX?  That's so [1980](http://en.wikipedia.org/wiki/LaTeX), man.  Use golang instead!
+
+This code takes a resume definition in JSON format and generates a PDF and a static website.
 
 # Example
 
