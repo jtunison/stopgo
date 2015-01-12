@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>{{.Name}} resume</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{.Name}}">
+    <meta name="author" content="{{.Name}}">    
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <!-- github acitivity css -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body>
+    <!-- ******HEADER****** --> 
+    <header class="header">
+        <div class="container">                       
+            <img class="profile-image img-responsive pull-left" src="assets/images/profile.png" alt="{{.Name}}" />
+            <div class="profile-content pull-left">
+                <h1 class="name">{{.Name}}</h1>
+                <ul class="social list-inline">
+                    <li><a href="{{.Links.GooglePlus}}"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="{{.Links.LinkedIn}}"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="{{.Links.Github}}"><i class="fa fa-github-alt"></i></a></li>                  
+                    <li><a href="{{.Links.Twitter}}"><i class="fa fa-twitter"></i></a></li>                   
+                </ul> 
+            </div><!--//profile-->
+            <a class="btn btn-cta-primary btn-download pull-right" href="{{.PdfFilename}}" target="_blank"><i class="fa fa-download"></i> Download PDF</a>
+       
+        </div><!--//container-->
+    </header><!--//header-->
+    
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-md-8 col-sm-12 col-xs-12">
+                <section class="summary section">
+                    <div class="section-inner">
+                        <h2 class="heading">Summary</h2>
+                        <div class="content">
+                            <p>{{.Summary}}</p>    
+                         
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+                <section class="experience section">
+                    <div class="section-inner">
+                        <h2 class="heading">Work Experience</h2>
+                        <div class="content">
+                            {{range .History}}
+                                <div class="item">
+                                    <h3 class="title">{{.Role}} - <span class="place"><a href="{{.CompanyUrl}}">{{.Company}}</a></span> <span class="year">({{.StartYear}} - {{.EndYear}})</span></h3>
+                                    <ul>
+                                        {{range .Bullets}}
+                                            <li>{{.}}</li>
+                                        {{end}}
+                                    </ul>                                    
+                                </div><!--//item-->
+                            {{end}}                            
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+                <section class="education section">
+                    <div class="section-inner">
+                        <h2 class="heading">Education</h2>
+                        <div class="content">
+                            {{range .Education}}
+                                <div class="item">                      
+                                    <h3 class="title"><i class="fa fa-graduation-cap"></i> {{.Degree}}</h3>
+                                    <h4 class="university">{{.Institution}} <span class="year">({{.StartYear}}-{{.EndYear}})</span></h4>
+                                </div><!--//item-->
+                            {{end}}
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">About</h2>
+                                                    
+                            <p>View the code for this website (written in golang!) at <a href="http://github.com/jtunison/stopgo">http://github.com/jtunison/stopgo</a>.</p>
+
+                            <p>This website (and the coordinating PDF) is generated from a JSON data file and served statically from Amazon S3.
+
+                            <hr/>
+                            
+                            <ul class="list-unstyled">
+                                <li><a href="http://getbootstrap.com/" target="_blank"><i class="fa fa-external-link"></i> Bootstrap 3.2</a></li>
+                                <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank"><i class="fa fa-external-link"></i> FontAwesome 4.1</a></li>
+                                <li><a href="http://themes.3rdwavemedia.com/" target="_blank"><i class="fa fa-external-link"></i> HTML5 CSS3 site template</a></li>
+                                <li><a href="http://caseyscarborough.com/projects/github-activity/" target="_blank"><i class="fa fa-external-link"></i> GitHub Activity Stream</a></li>                                
+                            </ul>
+                    </div><!--//secton-inner-->
+                </section><!--//section-->
+
+
+            </div><!--//primary-->
+            <div class="secondary col-md-4 col-sm-12 col-xs-12">
+                 <aside class="info aside section">
+                    <div class="section-inner">
+                        <h2 class="heading sr-only">Basic Information</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>{{.Location}}</li>
+                                <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span><a href="mailto:{{.Email}}">{{.Email}}</a></li>
+                                <li><i class="fa fa-link"></i><span class="sr-only">Website:</span><a href="{{.Links.Website}}">{{.Links.Website}}</a></li>                                
+                            </ul>
+                        </div><!--//content-->  
+                    </div><!--//section-inner-->                 
+                </aside><!--//aside-->
+                
+                {{range .Supplements}}
+                    <aside class="aside section">
+                        <div class="section-inner">
+                            <h2 class="heading">{{.Heading}}</h2>
+                            <div class="content">
+                                <ul>
+                                    {{range .Bullets}}
+                                        <li>{{.}}</li>
+                                    {{end}}
+                                </ul>
+                            </div><!--//content-->  
+                        </div><!--//section-inner-->                 
+                    </aside><!--//section-->
+                {{end}}
+                
+            </div><!--//secondary-->    
+        </div><!--//row-->
+    </div><!--//masonry-->
+    
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+                <small class="copyright">
+                    HTML5 CSS3 site template by <a href="https://www.linkedin.com/in/xiaoying" target="_blank">Xiaoying Riley</a> at <a href="http://themes.3rdwavemedia.com" target="_blank">3rd Wave Media</a>; licensed under <a class="dotted-link" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+                </small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
+    <!-- github activity plugin -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="assets/js/main.js"></script>            
+</body>
+</html> 
+
