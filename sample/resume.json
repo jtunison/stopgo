@@ -1,0 +1,72 @@
+{
+    "education": [{
+        "institution": "University College London",
+        "startYear": 2011,
+        "endYear": 2012,
+        "degree": "MSc Psychology and Computer Science"
+        },
+{
+        "institution": "University College London",
+        "startYear": 2008,
+        "endYear": 2011,
+        "degree": "BSc Computer Science"
+        }],
+    "email": "#",
+    "history": [
+    ],
+    "links": {
+        "github": "#",
+        "googlePlus": "#",
+        "linkedIn": "#",
+        "twitter": "#",
+        "website": "#"
+    },
+    "location": "San Francisco, CA",
+    "name": "James Lee",
+    "phone": "555-555-5555",
+    "summary": "Write a brief intro about yourself. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.", 
+    "supplements": [
+        {
+            "bullets": [
+                "a",
+                "b",
+                "c"
+            ],
+            "heading": "Soft Skills"
+        },
+        {
+            "bullets": [
+                "a",
+                "b",
+                "c"
+            ],
+            "heading": "Deep Knowledge"
+        },
+        {
+            "bullets": [
+                "a",
+                "b",
+                "c"
+            ],
+            "heading": "Shallow Knowledge"
+        },
+        {
+            "bullets": [
+                "a",
+                "b",
+                "c"
+            ],
+            "heading": "Environments"
+        },
+        {
+            "bullets": [
+                "a",
+                "b",
+                "c"
+            ],
+            "heading": "Integrations"
+        }
+    ],
+    "title": "Web App Developer"
+}
+
