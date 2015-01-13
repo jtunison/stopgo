@@ -2,23 +2,23 @@ package stopgo
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
-	"fmt"
 	"strings"
 )
 
 type Resume struct {
-	Name             string
-	Title            string
-	Location         string
-	Email            string
-	Phone            string
-	Summary          string
-	History          []Experience
-	Supplements      []Supplement
-	Links            Links
-	Education      []Education
+	Name        string
+	Title       string
+	Location    string
+	Email       string
+	Phone       string
+	Summary     string
+	History     []Experience
+	Supplements []Supplement
+	Links       Links
+	Education   []Education
 	PdfFilename string
 }
 
@@ -33,9 +33,9 @@ type Experience struct {
 
 type Education struct {
 	Institution string
-	Degree string
-	StartYear  int
-	EndYear    int
+	Degree      string
+	StartYear   int
+	EndYear     int
 }
 
 type Supplement struct {
@@ -69,7 +69,6 @@ func Load(path string) *Resume {
 	//		enc.Encode(resume)
 	//	}
 	resume.PdfFilename = fmt.Sprintf("%s_Resume.pdf", strings.Replace(resume.Name, " ", "_", -1))
-
 
 	return resume
 }

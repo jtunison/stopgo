@@ -2,6 +2,7 @@ package stopgo
 
 import (
 	"crypto/md5"
+	"encoding/hex"
 	"io/ioutil"
 	"launchpad.net/goamz/aws"
 	"launchpad.net/goamz/s3"
@@ -10,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"encoding/hex"
 )
 
 func RetrieveS3Map(b *s3.Bucket) map[string]string {
@@ -76,7 +76,7 @@ func Publish(localpath, bucketName, awsAccessKey, awsSecretKey string) error {
 					return err
 				}
 
-			} 
+			}
 			// else {
 			// 	log.Printf("Skipping '%s' (unchanged)\n", key)
 			// }
