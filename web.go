@@ -73,7 +73,9 @@ func Build(overlayPath, outputDir string) {
 	// housekeeping
 	rmrf("public")
 	mkdir("public")
+	log.Println("writing to: " + outputDir)
 	copy(fmt.Sprintf("%s/web/assets", packageDir), fmt.Sprintf("%s/assets", outputDir))
+	copy(fmt.Sprintf("%s/web/favicon.ico", packageDir), fmt.Sprintf("%s/favicon.ico", outputDir))
 	if overlayPath!="" {
 		copy(fmt.Sprintf("%s/assets", overlayPath), outputDir)		
 	}

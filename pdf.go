@@ -146,6 +146,8 @@ func Write(outputName string, resume *Resume) {
 		pdf.Ln(2)
 	}
 
+	packageDir := fmt.Sprintf("%s/src/github.com/jtunison/stopgo", os.Getenv("GOPATH"))
+
 	pdf.SetHeaderFunc(func() {
 		titleStr := resume.Name
 
@@ -175,7 +177,29 @@ func Write(outputName string, resume *Resume) {
 		pdf.Ln(1)
 		lineHeight = pdf.PointConvert(fontSize) * 1.25
 		pdf.SetFont(fontFamily, "", fontSize)
-		pdf.Write(lineHeight, fmt.Sprintf("%s  \x95  %s  \x95  %s", resume.Location, resume.Links.Website, resume.Email))
+		// svg("svg/map25.svg")
+
+		x = pdf.GetX()
+		y = pdf.GetY()
+		width := lineHeight*11/16
+		pdf.Image(fmt.Sprintf("%s/icons/map25.png", packageDir), x, y+.5, lineHeight, width, false, "", 0, "")
+		pdf.SetXY(x + width + 1, y)
+		pdf.Write(lineHeight, fmt.Sprintf("%s      ", resume.Location))
+
+		x = pdf.GetX()
+		y = pdf.GetY()
+		pdf.Image(fmt.Sprintf("%s/icons/link15.png", packageDir), x, y+.5, lineHeight, width, false, "", 0, "")
+		pdf.SetXY(x + width + 1, y)
+		// pdf.SetTextColor(80, 139, 200)
+		pdf.WriteLinkString(lineHeight, resume.Links.Website, resume.Links.Website)
+		pdf.Write(lineHeight, "      ")
+		// pdf.Write(lineHeight, fmt.Sprintf("%s      ", resume.Links.Website))
+
+		x = pdf.GetX()
+		y = pdf.GetY()
+		pdf.Image(fmt.Sprintf("%s/icons/envelope5.png", packageDir), x, y+.5, lineHeight, width, false, "", 0, "")
+		pdf.SetXY(x + width + 1, y)
+		pdf.Write(lineHeight, fmt.Sprintf("%s  ", resume.Email))
 
 		pdf.Ln(10)
 		y0 = pdf.GetY()
