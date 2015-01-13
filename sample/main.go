@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"github.com/jtunison/stopgo"
+	"os"
+	"fmt"
 )
 
 var serverMode bool
@@ -22,8 +24,8 @@ func main() {
 	} else {
 
 		gopath := os.Getenv("GOPATH")
-		overlayPath := fmt.Fprintf("%s/src/github.com/jtunison/stopgo/sample/overlay", gopath)
-		outputDir := fmt.Fprintf("%s/src/github.com/jtunison/stopgo/sample/public", gopath)
+		overlayPath := fmt.Sprintf("%s/src/github.com/jtunison/stopgo/sample/overlay", gopath)
+		outputDir := fmt.Sprintf("%s/src/github.com/jtunison/stopgo/sample/public", gopath)
 		stopgo.Build(overlayPath, outputDir)
 
 		// publish!

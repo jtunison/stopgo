@@ -67,8 +67,8 @@ func Write(outputName string, resume *Resume) {
 	gofpdf.MakeFont("font/Roboto/Roboto-Light.ttf", "font/cp1252.map", "font", nil, true)
 	gofpdf.MakeFont("font/Roboto/Roboto-Regular.ttf", "font/cp1252.map", "font", nil, true)
 	gofpdf.MakeFont("font/Droid_Serif/DroidSerif.ttf", "font/cp1252.map", "font", nil, true)
-	gofpdf.MakeFont("font/Droid_Serif/DroidSerif-Bold.ttf", "font/cp1252.map", "font", nil, true)
-	gofpdf.MakeFont("font/Playfair_Display/PlayfairDisplay-Regular.ttf", "font/cp1252.map", "font", nil, true)
+	// gofpdf.MakeFont("font/Droid_Serif/DroidSerif-Bold.ttf", "font/cp1252.map", "font", nil, true)
+	// gofpdf.MakeFont("font/Playfair_Display/PlayfairDisplay-Regular.ttf", "font/cp1252.map", "font", nil, true)
 	gofpdf.MakeFont("font/Playfair_Display/PlayfairDisplay-Bold.ttf", "font/cp1252.map", "font", nil, true)
 	gofpdf.MakeFont("font/glyphicons-halflings-regular.ttf", "font/glyphicons.map", "font", nil, true)
 	pdf.SetFontLocation("font")
@@ -81,9 +81,9 @@ func Write(outputName string, resume *Resume) {
 	pdf.AddFont("Roboto", "B", "Roboto-Regular.json")
 	pdf.AddFont("halflings", "", "glyphicons-halflings-regular.json")
 	pdf.AddFont("DroidSerif", "", "DroidSerif.json")
-	pdf.AddFont("DroidSerif", "B", "DroidSerif-Bold.json")
-	pdf.AddFont("Playfair", "", "PlayfairDisplay-Regular.json")
-	pdf.AddFont("Playfair", "B", "PlayfairDisplay-Bold.json")
+	// pdf.AddFont("DroidSerif", "B", "DroidSerif-Bold.json")
+	// pdf.AddFont("Playfair", "", "PlayfairDisplay-Regular.json")
+	pdf.AddFont("PlayfairDisplay", "B", "PlayfairDisplay-Bold.json")
 
 	setCol := func(col int) {
 		x := margin
@@ -165,7 +165,7 @@ func Write(outputName string, resume *Resume) {
 		horizontalRule(mainColumnWidth+gutter+supplementColumnWidth, 0.4)
 
 		// then write the name
-		pdf.SetFont("DroidSerif", "B", fontSize*3)
+		pdf.SetFont("PlayfairDisplay", "B", fontSize*3)
 		pdf.SetXY(x, y)
 		pdf.SetTextColor(0, 0, 0)
 		pdf.Write(lineHeight, titleStr)

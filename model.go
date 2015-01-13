@@ -20,6 +20,7 @@ type Resume struct {
 	Links       Links
 	Education   []Education
 	PdfFilename string
+	GoogleAnalyticsCode string
 }
 
 type Experience struct {
