@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+	"os"
 )
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
@@ -59,10 +60,11 @@ func Server() {
 	fmt.Println(err.Error())
 }
 
-func Build() {
+func Build(overlayPath, outputDir string) {
 
 	// load template & model
-	t, err := template.ParseFiles("../stopgo/web/index.html")
+	packageDir := fmt.Sprintf("%s/src/github.com/jtunison/stopgo", os.Getenv("GOPATH"))
+	t, err := template.ParseFiles(fmt.Sprintf("%s/web/index.html", packageDir))
 	if err != nil {
 		panic(err)
 	}
@@ -71,18 +73,20 @@ func Build() {
 	// housekeeping
 	rmrf("public")
 	mkdir("public")
-	copy("../stopgo/web/assets", "public/assets")
-	copy("overlay/assets", "public")
+	copy(fmt.Sprintf("%s/web/assets", packageDir), fmt.Sprintf("%s/assets", outputDir))
+	if overlayPath!="" {
+		copy(fmt.Sprintf("%s/assets", overlayPath), outputDir)		
+	}
 
 	// generate website
 	var doc bytes.Buffer
 	t.Execute(&doc, model)
-	err = ioutil.WriteFile("public/index.html", doc.Bytes(), 0644)
+	err = ioutil.WriteFile(fmt.Sprintf("%s/index.html", outputDir), doc.Bytes(), 0644)
 	if err != nil {
 		panic(err)
 	}
 
 	// generate pdf
-	Write("public/"+model.PdfFilename, model)
+	Write(fmt.Sprintf("%s/%s", outputDir, model.PdfFilename), model)
 
 }

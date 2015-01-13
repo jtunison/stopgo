@@ -3,17 +3,14 @@ package main
 import (
 	"flag"
 	"github.com/jtunison/stopgo"
-	"os"
 )
 
 var serverMode bool
 var publish bool
-var outputDir string
 
 func init() {
 	flag.BoolVar(&serverMode, "serverMode", false, "turn on server mode")
 	flag.BoolVar(&publish, "publish", false, "publish to s3")
-	flag.StringVar(&outputDir, "outputDir", "public", "name of output directory")
 }
 
 func main() {
@@ -24,7 +21,10 @@ func main() {
 		stopgo.Server()
 	} else {
 
-		stopgo.Build()
+		gopath := os.Getenv("GOPATH")
+		overlayPath := fmt.Fprintf("%s/src/github.com/jtunison/stopgo/sample/overlay", gopath)
+		outputDir := fmt.Fprintf("%s/src/github.com/jtunison/stopgo/sample/public", gopath)
+		stopgo.Build(overlayPath, outputDir)
 
 		// publish!
 		myS3bucket := "jameslee.com"

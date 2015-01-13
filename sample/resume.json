@@ -1,19 +1,20 @@
 {
-    "education": [{
-        "institution": "University College London",
-        "startYear": 2011,
-        "endYear": 2012,
-        "degree": "MSc Psychology and Computer Science"
+    "education": [
+        {
+            "degree": "MSc Psychology and Computer Science",
+            "endYear": 2012,
+            "institution": "University College London",
+            "startYear": 2011
         },
-{
-        "institution": "University College London",
-        "startYear": 2008,
-        "endYear": 2011,
-        "degree": "BSc Computer Science"
-        }],
-    "email": "#",
-    "history": [
+        {
+            "degree": "BSc Computer Science",
+            "endYear": 2011,
+            "institution": "University College London",
+            "startYear": 2008
+        }
     ],
+    "email": "#",
+    "history": [],
     "links": {
         "github": "#",
         "googlePlus": "#",
@@ -24,7 +25,7 @@
     "location": "San Francisco, CA",
     "name": "James Lee",
     "phone": "555-555-5555",
-    "summary": "Write a brief intro about yourself. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.", 
+    "summary": "Write a brief intro about yourself. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.",
     "supplements": [
         {
             "bullets": [
@@ -69,4 +70,3 @@
     ],
     "title": "Web App Developer"
 }
-
